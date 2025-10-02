@@ -1,0 +1,424 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color:black;
+
+} 
+
+ a{
+   color: white;
+   text-decoration: none;
+}
+
+.navbar{
+     position: fixed;
+     left: 0;
+     top: 0;
+     width: 100%;
+     padding: 25px 9%;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     z-index: 100;
+     visibility: hidden;
+     opacity: 0;
+     animation: show-content 1.5s linear forwards;
+     animation-delay: 1.2s;
+     flex: wrap;
+}
+
+@keyframes show-content {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+.navbar ul{
+    display: flex;
+    list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar li{
+    margin: 0 10px;
+}
+
+.navbar .logo{
+      font-size: 30px;
+      font-weight: 700;
+}
+
+.navbar ul li {
+      list-style: none; 
+      margin-left: 35px; 
+}
+
+.navbar ul li a {
+    font-size: 20px;
+    font-family: 500;
+    transition: .5s;
+}
+
+.navbar ul li:hover a,
+.navbar ul li.active a {
+    color: #4bff04;
+}
+
+.Home {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    height: 100vh;
+    padding: 60px 9% 0;
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.6s;
+}
+
+.home-info h1 {
+   font-size:  55px;
+}
+.home-info h2{
+    display: inline-block;
+   font-size: 32px;
+   margin-top: -10px;
+   
+}
+
+.home-info h2 span {
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke: .7px #4bff04;
+    animation: display-text 16s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+}
+
+@keyframes display-text {
+    25%,
+    100% {
+        display: none;
+    }
+}
+
+.home-info h2 span::before{
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    border-right: 2px solid #4bff04;
+    color: #4bff04;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fiil-text 4s linear infinite;
+}
+
+@keyframes fiil-text {
+    10%,
+    100% {
+        width: 0;
+    }
+
+    70%,
+    90% {
+        width: 100%;
+    }
+}
+
+.home-info p {
+    font-size: 16px;
+    margin: 10px 0 25px;
+}
+
+.home-info .btn-sci {
+    display: flex;
+    align-items: center;
+}
+.btn{
+    display: inline-block;
+    padding: 10px 30px;
+    background: #4bff04;
+    border: #4bff04;
+    border-radius: 40px;
+    box-shadow: 0 0 10px #4bff04;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    transition: .5s;
+
+}
+
+.btn:hover {
+    background: transparent;
+    color: #4bff04;
+    box-shadow: none;
+}
+
+.home-info .btn-sci .sci {
+    margin-left: 20px;
+}
+.home-info .btn-sci .sci a {
+    display: inline-flex;
+    padding: 8px;
+    border: 2px solid #4bff04;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #4bff04;
+    margin-top: 8px;
+}
+
+.home-img .img-box {
+    position: relative;
+    width: 32vw;
+    height: 32vw;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+.home-img .img-box::before,
+.home-img .img-box::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: conic-gradient(transparent, transparent, transparent, #4bff04);
+    transform: rotate(0deg);
+    animation: rotate-border 10s linear infinite;
+}
+
+.home-img .img-box::after {
+     animation-delay: -5s;
+}
+
+@keyframes rotate-border {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.home-img .img-box .img-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: black;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+
+}
+.home-img .img-box .img-item img {
+    position: absolute;
+    top: 30px;
+    display: block;
+    width: 85%;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+}
+
+.bar-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+
+}
+.bar-animation .bar {
+    width: 100%;
+    height: 100%;
+    background: black;
+    transform: translateY(-100%);
+    animation: show-bars .5s ease-in-out forwards;
+    animation-delay: calc(0.1s *var(--i));
+}
+
+@keyframes show-bars {
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+/* @media (max-width: 1025px) {
+    .Container {
+      font-size: 1.5rem;
+    }
+    .navbar,
+    .btn {
+      font-size: 0.8rem;
+    }
+  }  */
+   
+
+
+
+
+
+
+  @media (max-width: 768px) {
+    /* Ensure the Home section stacks elements vertically */
+    .Home {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-top: 80px; /* Adjust padding to prevent overlap */
+    }
+
+    /* Move the image section ABOVE the "Download CV" button */
+    .home-img {
+        order: 1; /* This moves the image to the top */
+        margin-bottom: 20px; /* Add spacing below */
+    }
+
+    /* Move the text section below the image */
+    .home-info {
+        order: 2;
+    }
+
+    /* Ensure the "Download CV" button and social icons stay at the bottom */
+    .btn-sci {
+        order: 3;
+        margin-top: 20px;
+    }
+}
+
+
+
+
+
+
+  @media (max-width: 768px) {
+    /* Fix the navbar spacing */
+    .navbar {
+        padding: 15px 5%; /* Adds space inside the navbar */
+        position: fixed;  /* Keeps the navbar on top */
+        top: 0; 
+        left: 0;
+        width: 100%;
+        background: black; /* Ensures navbar is visible */
+        z-index: 1000; /* Keeps it on top of everything */
+    }
+}
+
+
+
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+
+    .Home {
+        flex-direction: column;
+        padding: 30px 5% 0;
+        gap: 20px;
+    }
+
+    .home-info h1 {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    .home-info h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .home-info p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .home-img .img-box {
+        width: 60vw;
+        height: 60vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 3%;
+    }
+
+    .navbar .logo {
+        font-size: 24px;
+        margin-bottom: 10px; /* Add margin to separate from Home section */
+    }
+
+    .navbar ul li a {
+        font-size: 16px;
+    }
+
+    .Home {
+        padding: 20px 3% 0;
+    }
+
+    .home-info h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    .home-info h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .home-info p {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+
+    .home-img .img-box {
+        width: 80vw;
+        height: 80vw;
+    }
+}
